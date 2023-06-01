@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>link & list</title>
+    <title>HTML entities</title>
+    <style>
+        ol {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+        }
+
+        li {
+            flex: 0 0 10%;
+            display: flex;
+            /* Each list item occupies 50% of the available width */
+            justify-content: space-around;
+            border: 1px solid gray;
+            margin: 5px;
+            padding: auto;
+        }
+
+
+        .left {
+            color: blue;
+        }
+
+        .right {
+            color: red;
+        }
+
+        @media (max-width: 600px) {
+            li {
+                flex: 0 0 40%;
+                /* Each list item occupies 100% of the available width on smaller screens */
+            }
+        }
+    </style>
+
 </head>
+
 <body>
-        <h4>Top 10 Job Portals in India</h4>
-    <ul style="list-style-type:square">
-        <li><a href="https://www.linkedin.com/feed/" title="www.linkedin.com" target="_blank">LinkedIn</a></li>
-        <li><a href="https://in.indeed.com/" title="in.indeed.com" target="_blank">Indeed</a></li>
-        <li><a href="https://www.monsterindia.com/" title="www.monsterindia.com" target="_blank">Monster India</a></li>
-        <li><a href="https://www.linkup.com/" title="www.linkup.com" target="_blank">LinkUp</a></li>
-        <li><a href="https://www.ziprecruiter.com/" title="www.ziprecruiter.com" target="_blank" >ZipRecruiter</a></li>
-        <li><a href="https://www.naukri.com/" title="www.naukri.com" target="_blank">Naukri</a></li>
-        <li><a href="https://www.shine.com/" title="www.shine.com" target="_blank">Shine</a></li>
-        <li><a href="https://www.timesjobs.com/" title="www.timesjobs.com" target="_blank">TimesJobs</a></li>
-        <li><a href="https://www.upwork.com/" title="www.upwork.com" target="_blank">Upwork</a></li>
-        <li><a href="https://www.freshersworld.com/" title="www.freshersworld.com" target="_blank">Freshersworld</a></li>
-    </ul>
+    <h3>HTML entities are special codes used to represent reserved characters and symbols in HTML.</h3>
+    <p> They are used to display characters that have a special meaning in HTML syntax or characters that are not
+        typically available on a keyboard.</p>
+
+    <button onclick="printEntities()">Show Entites</button>
+    <ol id="ent"></ol>
+
+    <script>
+        function printEntities() {
+            const dat = document.getElementById("ent");
+            for (let k = 0; k <= 9; k++) {
+                for (let i = 0; i <= 9; i++) {
+                    for (let j = 0; j <= 9; j++) {
+                        let li = document.createElement("li");
+                        li.innerHTML = `<span class="left"> &#${k}${i}${j};
+                            </span>  <span class="right"> &amp;#${k}${i}${j}</span>`;
+                        dat.appendChild(li);
+                    }
+                }
+            }
+        }
+
+    </script>
 </body>
+
 </html>
